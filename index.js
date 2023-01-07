@@ -66,7 +66,7 @@ import createJsonFile from "./utilis/createJsonFile.js";
   async function init() {
   
     preferences();
-    await checkRegistrationFile(config.get('registerationFilePath'));
+    await checkRegistrationFile(config.get('renderTemplateFolderPath'));
     
     let responses = prompts(config.hasFlags);
 
