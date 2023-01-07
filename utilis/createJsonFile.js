@@ -40,6 +40,7 @@ export default (responses) => {
       "data" : {
         "preview_image" : true
       }
+    }
   }
 }
   `;
