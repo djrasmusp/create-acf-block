@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7c2606b9-f5ca-4b0f-968f-4839a16df38d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilis/createRenderTemplate.js" beforeDir="false" afterPath="$PROJECT_DIR$/utilis/createBlock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilis/preferences.js" beforeDir="false" afterPath="$PROJECT_DIR$/utilis/preferences.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +58,7 @@
       <workItem from="1672872219451" duration="81000" />
       <workItem from="1672872309237" duration="599000" />
       <workItem from="1672873032312" duration="203000" />
-      <workItem from="1673051929023" duration="1828000" />
+      <workItem from="1673051929023" duration="1977000" />
     </task>
     <servers />
   </component>

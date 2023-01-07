@@ -81,7 +81,7 @@ import registerBlocks from './utilis/registerBlocks.js';
     
     let responses = prompts(config.hasFlags);
     
-    registerBlocks(responses);
+    // registerBlocks(responses);
     createBlock(responses);
     createJsonFile(responses);
   }
