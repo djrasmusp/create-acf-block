@@ -1,16 +1,17 @@
 import readlineSync from 'readline-sync';
 import chalk from 'chalk';
+
 const args = process.argv.slice(2);
 
 export default () => {
-    /** 
-     * If no args, show all prompts. 
+    /**
+     * If no args, show all prompts.
      * Otherwise only show required prompts and prompts for present flags
      */
     function allowPrompt(flag) {
-        if ( args.length === 0 ) {
+        if (args.length === 0) {
             return true;
-        } else if ( args.indexOf('--simple') != -1 ) {
+        } else if (args.indexOf('--simple') != -1) {
             return false;
         } else {
             return (args.indexOf(flag) != -1);
@@ -18,17 +19,17 @@ export default () => {
     }
 
     const prompt = {};
-    
+
     prompt.name = readlineSync.question(`
     ${chalk.bold('Block name:')}
     ${chalk.dim('(String) A unique name that identifies the block (without namespace). For example ‘testimonial’. Note: A block name can only contain lowercase alphanumeric characters and dashes, and must begin with a letter.')}
     `);
-    
+
     prompt.title = readlineSync.question(`
     ${chalk.bold('Block title:')}
     ${chalk.dim('(String) The display title for your block. For example ‘Testimonial’.')}
     `);
-    
+
     if (allowPrompt('--description')) {
         prompt.description = readlineSync.question(`
         ${chalk.bold('Block description:')}
@@ -44,9 +45,10 @@ export default () => {
     }
 
     return {
-       name: prompt.name, 
-       title: prompt.title, 
-       description: prompt.description || '',
-       category: prompt.category || '',
+        name: prompt.name,
+        title: prompt.title,
+        description: prompt.description || '',
+        category: prompt.category || '',
+        keywords: prompt.keywords || ''
     };
 };

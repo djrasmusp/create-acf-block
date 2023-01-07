@@ -12,27 +12,17 @@ const schema = {
     type: 'boolean',
     default: false
   },
-  registerationFilePath: {
-    type: 'string',
-    default: ''
-  },
   renderTemplateFolderPath: {
     type: 'string',
     default: ''
   },
-  createAssets: {
-    type: 'boolean'
-  },
-  groupAssets: {
-    type: 'boolean'
-  },
-  cssPath: {
+  blockNamespace: {
     type: 'string',
     default: ''
   },
-  jsPath: {
+  blockCategory : {
     type: 'string',
-    default: ''
+    default : ''
   }
 }
 const config = new Conf({schema});
@@ -49,7 +39,6 @@ import preferences from './utilis/preferences.js';
 import prompts from './utilis/prompts.js';
 import createBlock from './utilis/createBlock.js';
 import createJsonFile from "./utilis/createJsonFile.js";
-import registerBlocks from './utilis/registerBlocks.js';
 
 (async () => {
   
@@ -80,8 +69,7 @@ import registerBlocks from './utilis/registerBlocks.js';
     await checkRegistrationFile(config.get('registerationFilePath'));
     
     let responses = prompts(config.hasFlags);
-    
-    // registerBlocks(responses);
+
     createBlock(responses);
     createJsonFile(responses);
   }

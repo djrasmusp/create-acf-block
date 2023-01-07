@@ -40,6 +40,14 @@ export default () => {
 		);
 
 		config.set(
+			"blockNamespace",
+			readlineSync.question(
+				`${chalk.bold('Name:')}` +
+				`${chalk.dim("(String) A unique name that identifies the block category (without namespace). For example ‘category’. Note: A block category name can only contain lowercase alphanumeric characters and dashes, and must begin with a letter.")}`
+			)
+		)
+
+		config.set(
 			"blockCategory",
 			readlineSync.question(
 				`${chalk.bold('Category name:')}` +
