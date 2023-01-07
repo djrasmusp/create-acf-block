@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import chalk from 'chalk';
+import slugify from "slugify";
 
 const args = process.argv.slice(2);
 
@@ -31,17 +32,21 @@ export default () => {
     `);
 
     prompt.description = readlineSync.question(`
-        ${chalk.bold('Block description:')}
-        ${chalk.dim('(String) (Optional) This is a short description for your block.')}
-        `);
+    ${chalk.bold('Block description:')}
+    ${chalk.dim('(String) (Optional) This is a short description for your block.')}
+    `);
 
     prompt.keywords = readlineSync.question(`
-        ${chalk.bold('Block keywords:')}
-        ${chalk.dim('(String) Blocks are grouped into categories to help users browse and discover them. The core provided categories are [ common | formatting | layout | widgets | embed ]. Plugins and Themes can also register custom block categories.')}
-        `);
+    ${chalk.bold('Block keywords:')}
+    ${chalk.dim('(String) Blocks are grouped into categories to help users browse and discover them. The core provided categories are [ common | formatting | layout | widgets | embed ]. Plugins and Themes can also register custom block categories.')}
+    `);
+    prompt.posttypes = readlineSync.question(`
+    ${chalk.bold('Block Post Types:')}
+    ${chalk.dim('(String) Blocks are grouped into categories to help users browse and discover them. The core provided categories are [ common | formatting | layout | widgets | embed ]. Plugins and Themes can also register custom block categories.')}
+    `);
 
     return {
-        name: prompt.name.toLowerCase(),
+        name: slugify(prompt.name),
         title: prompt.title,
         description: prompt.description || '',
         keywords: prompt.keywords || '',
