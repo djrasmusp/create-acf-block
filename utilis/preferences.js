@@ -5,7 +5,7 @@ import chalk from "chalk";
 import path from "path";
 
 const args = process.argv.slice(2);
-const resetPreferences = args.indexOf("--preferences") === -1 ? false : true;
+const resetPreferences = args.indexOf("--reset") === -1 ? false : true;
 
 export default () => {
 	/**
