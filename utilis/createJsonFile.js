@@ -24,7 +24,7 @@ export default (responses) => {
   "description" : "${responses.description}",
   "category" : "${config.get("blockCategory")}",
   "apiVersion" : 2,
-  "keywords" : ${JSON.stringify(responses.keywords.split(' '))}
+  "keywords" : ${JSON.stringify(responses.keywords.split(' '))},
   "acf" : {
   	"mode" : "auto",
   	"renderTemplate" : "${responses.name}.php"

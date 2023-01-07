@@ -38,8 +38,8 @@ export default () => {
     }
 
     if (allowPrompt('--category')) {
-        prompt.category = readlineSync.question(`
-        ${chalk.bold('Block category:')}
+        prompt.keywords = readlineSync.question(`
+        ${chalk.bold('Block keywords:')}
         ${chalk.dim('(String) Blocks are grouped into categories to help users browse and discover them. The core provided categories are [ common | formatting | layout | widgets | embed ]. Plugins and Themes can also register custom block categories.')}
         `);
     }
@@ -48,7 +48,6 @@ export default () => {
         name: prompt.name,
         title: prompt.title,
         description: prompt.description || '',
-        category: prompt.category || '',
         keywords: prompt.keywords || ''
     };
 };
