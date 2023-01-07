@@ -40,7 +40,7 @@ export default (responses) => {
   }
   ?>
   
-  <div id="<?php echo $block_id; ?>" class="<?php echo $className; ?>">
+  <div id="<?= $block_id; ?>" class="<?= $className; ?>">
   </div>
   `;
 
