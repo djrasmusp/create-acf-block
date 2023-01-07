@@ -38,15 +38,18 @@ export default () => {
 
     prompt.keywords = readlineSync.question(`
     ${chalk.bold('Block keywords:')}
-    ${chalk.dim('(String) Blocks are grouped into categories to help users browse and discover them. The core provided categories are [ common | formatting | layout | widgets | embed ]. Plugins and Themes can also register custom block categories.')}
+    ${chalk.dim('(String) (Optional) Blocks are grouped into categories to help users browse and discover them. The core provided categories are [ common | formatting | layout | widgets | embed ]. Plugins and Themes can also register custom block categories.')}
     `);
     prompt.posttypes = readlineSync.question(`
     ${chalk.bold('Block Post Types:')}
-    ${chalk.dim('(String) Blocks are grouped into categories to help users browse and discover them. The core provided categories are [ common | formatting | layout | widgets | embed ]. Plugins and Themes can also register custom block categories.')}
+    ${chalk.dim('(String) (Optional) Blocks are grouped into categories to help users browse and discover them. The core provided categories are [ common | formatting | layout | widgets | embed ]. Plugins and Themes can also register custom block categories.')}
     `);
 
     return {
-        name: slugify(prompt.name),
+        name: slugify(prompt.name, {
+            lower: true,
+            strict: true
+        }),
         title: prompt.title,
         description: prompt.description || '',
         keywords: prompt.keywords || '',

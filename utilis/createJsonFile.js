@@ -15,27 +15,33 @@ function writeFile(path, contents, cb) {
 }
 
 export default (responses) => {
-    const postTypes = responses.posttypes ? ',\n"postTypes" : [' + JSON.stringify(responses.posttypes.split(" ")) +']\n' : '';
+    const postTypes = responses.posttypes ? ',\n"postTypes" : [' + JSON.stringify(responses.posttypes.split("|")) +']' : '';
     // Block render template content
     const renderTemplateContent = `
-  {
+{
   "name" : "${responses.name}",
   "title" : "${responses.title}",
   "description" : "${responses.description}",
   "category" : "${config.get("blockCategory")}",
   "icon" : "",
   "apiVersion" : 2,
-  "keywords" : ${JSON.stringify(responses.keywords.split(' '))},
+  "keywords" : ${JSON.stringify(responses.keywords.split('|'))},
   "acf" : {
   	"mode" : "auto",
-  	"renderTemplate" : "${responses.name}.php"
-  	${postTypes}
+  	"renderTemplate" : "${responses.name}.php"${postTypes}
   },
   "supports" : {
     "align" : false,
   	"anchor": true
+  },
+  "example" : {
+    "attributes" : {
+      "mode" : "edit",
+      "data" : {
+        "preview_image" : true
+      }
   }
-  }
+}
   `;
 
     /**
