@@ -30,24 +30,21 @@ export default () => {
     ${chalk.dim('(String) The display title for your block. For example ‘Testimonial’.')}
     `);
 
-    if (allowPrompt('--description')) {
-        prompt.description = readlineSync.question(`
+    prompt.description = readlineSync.question(`
         ${chalk.bold('Block description:')}
         ${chalk.dim('(String) (Optional) This is a short description for your block.')}
         `);
-    }
 
-    if (allowPrompt('--category')) {
-        prompt.keywords = readlineSync.question(`
+    prompt.keywords = readlineSync.question(`
         ${chalk.bold('Block keywords:')}
         ${chalk.dim('(String) Blocks are grouped into categories to help users browse and discover them. The core provided categories are [ common | formatting | layout | widgets | embed ]. Plugins and Themes can also register custom block categories.')}
         `);
-    }
 
     return {
-        name: prompt.name,
+        name: prompt.name.toLowerCase(),
         title: prompt.title,
         description: prompt.description || '',
-        keywords: prompt.keywords || ''
+        keywords: prompt.keywords || '',
+        posttypes : prompt.posttypes || '',
     };
 };
