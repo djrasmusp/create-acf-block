@@ -15,7 +15,7 @@ function writeFile(path, contents, cb) {
 }
 
 export default (responses) => {
-    const postTypes = responses.posttypes ? ',\n"postTypes" : [' + JSON.stringify(responses.posttypes.split("|")) +']' : '';
+    const postTypes = responses.posttypes ? ',\n    "postTypes" : ' + JSON.stringify(responses.posttypes.split("|")) : '';
     // Block render template content
     const renderTemplateContent = `
 {
