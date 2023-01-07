@@ -47,9 +47,9 @@ const config = new Conf({schema});
  * */
 import preferences from './utilis/preferences.js';
 import prompts from './utilis/prompts.js';
-import createRenderTemplate from './utilis/createRenderTemplate.js';
+import createBlock from './utilis/createBlock.js';
+import createJsonFile from "./utilis/createJsonFile.js";
 import registerBlocks from './utilis/registerBlocks.js';
-import createAssets from './utilis/createAssets.js';
 
 (async () => {
   
@@ -70,22 +70,6 @@ import createAssets from './utilis/createAssets.js';
     });
   }
 
-  function checkCommentMarkers(path) {
-    return new Promise(function(resolve, regect) {
-      fs.readFile(path, function (err, data) {
-        if (err) {
-          console.log(err);
-        }
-        if(data.includes('// End Create-ACF-Block') === false){
-            regect(`Please add these comment markers to your registration file where you want to register future blocks:\n` +
-            `// Begin Create-ACF-Block\n`+
-            `// End Create-ACF-Block`);
-        }
-        resolve();
-      });
-    });
-  }
-
   function handleError(err) {
     console.log(err);
   }
@@ -94,13 +78,12 @@ import createAssets from './utilis/createAssets.js';
   
     preferences();
     await checkRegistrationFile(config.get('registerationFilePath'));
-    await checkCommentMarkers(config.get('registerationFilePath'));
     
     let responses = prompts(config.hasFlags);
     
     registerBlocks(responses);
-    createRenderTemplate(responses);
-    createAssets(responses);
+    createBlock(responses);
+    createJsonFile(responses);
   }
 
   init().catch(handleError);

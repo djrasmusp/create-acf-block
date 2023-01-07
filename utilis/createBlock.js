@@ -32,8 +32,6 @@ export default (responses) => {
    * Block Name: ${responses.title}
    *
    * Description: ${responses.description}
-   *
-   * Testing : Rasmus P
    */
   
   // Dynamic block ID

@@ -24,17 +24,6 @@ export default () => {
 		console.log(chalk.bold.bgGreen.white(` Preferences: \n`));
 
 		config.set(
-			"registerationFilePath",
-			path.relative(
-				"./",
-				readlineSync.questionPath(`${chalk.bold("Relative block registration file path:")}\n` + `${chalk.dim('Example: inc/acf-blocks.php"')}\n`, {
-					isDirectory: false,
-					exists: true,
-				})
-			)
-		);
-
-		config.set(
 			"renderTemplateFolderPath",
 			path.relative(
 				"./",
@@ -50,38 +39,13 @@ export default () => {
 			)
 		);
 
-		// Create block assets?
-		if (readlineSync.keyInYN(`${chalk.bold("\nCreate block specific CSS and JS files?")}`)) {
-			config.set("createAssets", true);
-
-			// Group block assets with render template?
-			if (readlineSync.keyInYN(`${chalk.bold("Group block CSS and JS files with the render template?")}`)) {
-				config.set("groupAssets", true);
-			} else {
-				config.set("groupAssets", false);
-				// Set asset paths
-				console.log("\n");
-				console.log(chalk.bold.bgGreen.white(` Block asset paths:`));
-				console.log(chalk.dim(`If the given directory doesn't exist, it will be created.\n`));
-
-				config.set(
-					"cssPath",
-					readlineSync.questionPath(`${chalk.bold("Block CSS path: ")}`, {
-						isDirectory: true,
-						exists: null,
-						create: true,
-					})
-				);
-				config.set(
-					"jsPath",
-					readlineSync.questionPath(`${chalk.bold("Block JS path: ")}`, {
-						isDirectory: true,
-						exists: null,
-						create: true,
-					})
-				);
-			}
-		}
+		config.set(
+			"blockCategory",
+			readlineSync.question(
+				`${chalk.bold('Category name:')}` +
+				`${chalk.dim("(String) A unique name that identifies the block category (without namespace). For example ‘category’. Note: A block category name can only contain lowercase alphanumeric characters and dashes, and must begin with a letter.")}`
+			)
+		)
 
 		config.set("preferencesSet", true);
 	}
