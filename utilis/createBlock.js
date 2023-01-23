@@ -21,6 +21,9 @@ export default (responses) => {
    * Block Name: ${responses.title}
    *
    * Description: ${responses.description}
+   *
+   * @var block $block
+   * @var is_preview $is_preview
    */
   
   // Dynamic block ID
