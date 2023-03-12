@@ -33,18 +33,15 @@ export default (responses) => {
   }
   
   
-  // Create class attribute allowing for custom "className" and "align" values.
-  $className = '${responses.name}';
+  // Create class attribute allowing for custom "className".
+  $className = '${responses.name}'-block;
   if( !empty($block['className']) ) {
       $className .= ' ' . $block['className'];
   }
-  if( !empty($block['align']) ) {
-      $className .= ' align' . $block['align'];
-  }
   ?>
   
-  <div id="<?= $block_id; ?>" class="<?= $className; ?>">
-  </div>
+  <section id="<?= $block_id; ?>" class="<?= $className; ?>">
+  </section>
   `;
 
 	/**

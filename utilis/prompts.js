@@ -21,11 +21,6 @@ export default () => {
 
     const prompt = {};
 
-    prompt.name = readlineSync.question(`
-    ${chalk.bold('Block name:')}
-    ${chalk.dim('(String) A unique name that identifies the block (without namespace). For example ‘testimonial’. Note: A block name can only contain lowercase alphanumeric characters and dashes, and must begin with a letter.')}
-    `);
-
     prompt.title = readlineSync.question(`
     ${chalk.bold('Block title:')}
     ${chalk.dim('(String) The display title for your block. For example ‘Testimonial’.')}
@@ -38,15 +33,15 @@ export default () => {
 
     prompt.keywords = readlineSync.question(`
     ${chalk.bold('Block keywords:')}
-    ${chalk.dim('(String) (Optional) Blocks are grouped into categories to help users browse and discover them. The core provided categories are [ common | formatting | layout | widgets | embed ]. Plugins and Themes can also register custom block categories.')}
+    ${chalk.dim('(String) (Optional) Set keywords for the block. Seperate each keywork with a |.')}
     `);
     prompt.posttypes = readlineSync.question(`
     ${chalk.bold('Block Post Types:')}
-    ${chalk.dim('(String) (Optional) Blocks are grouped into categories to help users browse and discover them. The core provided categories are [ common | formatting | layout | widgets | embed ]. Plugins and Themes can also register custom block categories.')}
+    ${chalk.dim('(String) (Optional) Set available post-types for the block. Seperate with | per type.')}
     `);
 
     return {
-        name: slugify(prompt.name, {
+        name: slugify(prompt.title, {
             lower: true,
             strict: true
         }),

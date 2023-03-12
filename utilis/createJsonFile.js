@@ -23,6 +23,7 @@ export default (responses) => {
   "title" : "${responses.title}",
   "description" : "${responses.description}",
   "category" : "${config.get("blockCategory")}",
+  "version" : "1.0.0",
   "icon" : "",
   "apiVersion" : 2,
   "keywords" : ${JSON.stringify(responses.keywords.split('|'))},
@@ -30,9 +31,16 @@ export default (responses) => {
   	"mode" : "auto",
   	"renderTemplate" : "${responses.name}.php"${postTypes}
   },
+  "styles": [
+  ],
   "supports" : {
     "align" : false,
-  	"anchor": true
+  	"anchor": true,
+  	"color" : {
+  	    "text": false,
+        "background": false,
+        "link": false
+  	}
   },
   "example" : {
     "attributes" : {
