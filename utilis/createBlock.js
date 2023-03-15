@@ -25,6 +25,13 @@ export default (responses) => {
    * @var block $block
    * @var is_preview $is_preview
    */
+   
+   global $post;
+   
+   // For preview in Editor 
+   if($is_preview && $post->post_status === 'auto-draft'){
+   
+   } 
   
   // Dynamic block ID
   $block_id = '${responses.name}-' . $block['id'];
@@ -40,7 +47,7 @@ export default (responses) => {
   }
   ?>
   
-  <section id="<?= $block_id; ?>" class="<?= $className; ?>">
+  <section class="<?= $className; ?>" id="<?= $block_id; ?>">
   </section>
   `;
 
