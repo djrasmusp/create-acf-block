@@ -41,7 +41,7 @@ export default (responses) => {
   
   
   // Create class attribute allowing for custom "className".
-  $className = '${responses.name}'-block;
+  $className = '${responses.name}-block';
   if( !empty($block['className']) ) {
       $className .= ' ' . $block['className'];
   }
